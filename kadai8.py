@@ -58,7 +58,7 @@ while 1:
     elif num == 4:
         track.useGas()
         g = track.getGas()
-        if(g<0):
+        if(g<=0):
             print("\nガソリンがなくなりました！ご利用ありがとうございました。")
             break
     elif num == 5:
