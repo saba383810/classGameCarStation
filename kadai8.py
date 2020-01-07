@@ -17,7 +17,7 @@ class Car:
 
     def useGas(self):
         self.__gas -= 10
-        print("\nあなたはドライブを楽しみ10リットル消費した。\"n)
+        print("\nあなたはドライブを楽しみ10リットル消費した。\n")
 
     def show(self):
         print("定員 : ",self.getCapacity(),"人","\nガソリン量 : ",self.getGas(),"リットル")
