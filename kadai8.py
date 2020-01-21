@@ -46,6 +46,7 @@ class Track(Car):
     def show(self):
         print("\n現在の状態は\n  定員 : ",self.getCapacity(),"人","\n  ガソリン量 : ",self.getGas(),"リットル","  積荷の量 :",self.getBurden(),"トン\nです")
 
+#メイン処理
 print("\nこんにちは！カーステーションにようこそ！\n")
 track = Track(3,10)
 while 1:
