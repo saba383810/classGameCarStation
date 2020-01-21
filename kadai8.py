@@ -1,5 +1,5 @@
 # クラスの定義
-class MyException(Exception):
+class CarException(Exception):
     def __init__(self,bv):
         self.badValue = bv
 
@@ -17,7 +17,7 @@ class Car:
 
     def setGas(self,gas):
         if gas <= 0:
-            raise(MyException(gas))
+            raise(CarException(gas))
         self.__gas += gas
         print("\n給油が完了しました。\n")
 
@@ -59,7 +59,7 @@ while 1:
         num2 =int(input("何リットル入れますか？"))
         try:
             track.setGas(num2)
-        except MyException as e:
+        except CarException as e:
             print("\n0より小さい値は給油できません。")
             print("給油しようとした値は、",e.badValue,"です。")
             print("0より大きい値を入れてください")
@@ -68,10 +68,12 @@ while 1:
         track.useGas()
         g = track.getGas()
         if(g<=0):
-            print("\nガソリンがなくなりました！ご利用ありがとうございました。")
+            print("\nガソリンがなくなりました！",end="")
             break
     elif num == 5:
         break
     else :
         print("\n          正 し い 数 字 を 入 力 し て く だ さ い ! ")
+        
+print("ご利用ありがとうございました。\n")
     
