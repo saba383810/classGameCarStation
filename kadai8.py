@@ -1,4 +1,8 @@
 # クラスの定義
+class MyException(Exception):
+    def __init__(self,bv):
+        self.badValue = bv
+
 class Car:
     #コンストラクタ
     def __init__(self,capacity,gas):
@@ -12,6 +16,8 @@ class Car:
         return self.__gas
 
     def setGas(self,gas):
+        if gas <= 0:
+            raise(MyException(gas))
         self.__gas += gas
         print("\n給油が完了しました。\n")
 
@@ -37,7 +43,6 @@ class Track(Car):
     def getBurden(self):
         return self.__burden
 
-
     def show(self):
         print("\n現在の状態は\n  定員 : ",self.getCapacity(),"人","\n  ガソリン量 : ",self.getGas(),"リットル","  積荷の量 :",self.getBurden(),"トン\nです")
 
@@ -52,7 +57,13 @@ while 1:
         track.addBurden()
     elif num == 3:      
         num2 =int(input("何リットル入れますか？"))
-        track.setGas(num2)
+        try:
+            track.setGas(num2)
+        except MyException as e:
+            print("\n0より小さい値は給油できません。")
+            print("給油しようとした値は、",e.badValue,"です。")
+            print("0より大きい値を入れてください")
+
     elif num == 4:
         track.useGas()
         g = track.getGas()
